@@ -31,3 +31,6 @@ Provides insights for proactive security measures.
 ## Projects: 
 1.[Analyzing DNS Logs Using Splunk SIEM:](https://github.com/users/JohnPaulPamintuan/projects/2/views/1?pane=issue&itemId=88281578) 
 - This project provides a step-by-step guide for analyzing DNS (Domain Name System) log files using Splunk SIEM. It covers uploading sample log files, extracting relevant fields, analyzing DNS query patterns, detecting anomalies, and monitoring DNS traffic. 
+
+
+2. [Analyzing HTTP Logs Using Splunk SIEM](https://github.com/JohnPaulPamintuan/JohnPaulPamintuan/issues/1): This project outlines the process of analyzing HTTP (Hypertext Transfer Protocol) log files using Splunk SIEM. It covers uploading sample log files, extracting relevant fields, analyzing HTTP request patterns, detecting anomalies, and monitoring HTTP traffic.
