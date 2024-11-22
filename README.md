@@ -19,8 +19,8 @@
 - Advanced Analytics: Uses machine learning for anomaly detection and predictive insights.
 
 ## How Splunk Helps in Security:
-Detects unusual patterns, e.g., brute force attacks or malware infections.
-Provides insights for proactive security measures.
+- Detects unusual patterns, e.g., brute force attacks or malware infections.
+- Provides insights for proactive security measures.
 
 
 # Splunk SIEM Project
@@ -135,7 +135,9 @@ Provides insights for proactive security measures.
 
 # 6. Creating Dashboards
 - Steps:
-  - Navigate to Dashboards → Create a new dashboard.
+  - Create Dashboard: Select Save As → New Dashboard, name it (e.g., failed login logs), and choose:
+Classic Dashboard or Dashboard Studio (for advanced customization).
+Set permissions (Private or Shared in App) and click Save Dashboard.
   - Add visualizations for:
     - Logon attempts by user.
     - Geographical distribution of access.
