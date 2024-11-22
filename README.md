@@ -54,7 +54,7 @@ Provides insights for proactive security measures.
 
   IMAGE
 ## 3. Data Ingestion and Parsing
-- Data Sources and Ingestion:
+### Data Sources and Ingestion:
   - Data sources in Splunk include logs, network, application, database, firewall, router, switch, and antivirus data.
   - Splunk collects data via methods like lightweight forwarders, heavy forwarders, or direct upload.
 - Data Injection Options:
@@ -66,7 +66,7 @@ Provides insights for proactive security measures.
   - The file is uploaded, source type defined (e.g., "DHCP logs"), categorized, and saved under the Search and Reporting app.
   - Data becomes searchable in Splunk with source and host fields automatically populated.
 
-- Data Parsing:
+### Data Parsing:
   - Parsing involves standardizing data from various sources to enable effective visualization and investigation.
   - Fields are categorized into:
     - Default Fields: Predefined fields provided by Splunk.
