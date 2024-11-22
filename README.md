@@ -43,25 +43,47 @@ Provides insights for proactive security measures.
   - Windows: Download the installer, run it, and follow the wizard.
 - Post-installation:
   - Access Splunk Web at http://localhost:8000 using default credentials.
-  - IMAGE 
+ <img src="https://i.imgur.com/ClGZ0Uy.png" height="70%" width="70%" alt="Splunk"/>
 
 
 ## 2. Splunk Apps
-- Navigate to Apps → Find more apps on Splunkbase → Install desired apps (e.g., Splunk Security Essential).
+- Navigate to Apps → Find more apps on Splunkbase → Install desired apps
+- Popular tool Apps for Cybersecurity
+  - Security Essential 
+  - Splunk Enterprise Security
+
   IMAGE
 ## 3. Data Ingestion and Parsing
-- Ingesting Data:
-  - Configure inputs for logs from sources like:
-    - Syslog (Linux servers, firewalls)
-    - Windows Event Logs (via Universal Forwarder)
-    - Custom application logs (e.g., web servers).
-- Parsing Logs:
-- Ensure data is indexed and sourcetypes are set (e.g., dns logs).
-- Use field extractions to structure log data.
-IMAGE 
+- Data Sources and Ingestion:
+  - Data sources in Splunk include logs, network, application, database, firewall, router, switch, and antivirus data.
+  - Splunk collects data via methods like lightweight forwarders, heavy forwarders, or direct upload.
+- Data Injection Options:
+  - Upload data manually (e.g., drag-and-drop a file).
+  - Monitor live instances on specific ports.
+  - Use forwarders for continuous data streaming.
+-Use Case: Uploading Data:
+  - Example: Application team provides 30 days of logs due to suspected DHCP spoofing attack.
+  - The file is uploaded, source type defined (e.g., "DHCP logs"), categorized, and saved under the Search and Reporting app.
+  - Data becomes searchable in Splunk with source and host fields automatically populated.
+
+- Data Parsing:
+  - Parsing involves standardizing data from various sources to enable effective visualization and investigation.
+  - Fields are categorized into:
+    - Default Fields: Predefined fields provided by Splunk.
+    - Interesting Fields: Automatically extracted fields based on metadata.
+  - Users can also extract new fields manually, particularly when critical data like source or destination IPs is missing
+- Field Extraction Process:
+  - Select a log/event to extract fields.
+  - Use regular expressions (preferred) or delimiters to define fields.
+  - Example: Extract source (SRC IP) and destination IP (DST IP) from DHCP logs.
+  - It's best to extract one field at a time for accuracy, especially in real-world scenarios.
+- DHCP Parsing Example:
+  - DHCP logs often include messages and patterns like the DORA process (Discover, Offer, Request, Acknowledge).
+  - Understanding packet details is crucial for accurately extracting and analyzing fields such as IP addresses or DHCP server information.  
+
+
+
 ## 4. Search Processing Language (SPL)
-
-
 ### Search Processing Language (SPL)
 
 - <b><ins>Search</b></ins>
@@ -121,8 +143,9 @@ IMAGE
     - Line Chart: Trends over time for failed logins.
     - Heatmap: IP addresses flagged for suspicious activity.
 
-  IMAGE
-  IMAGE
+  <img src="https://i.imgur.com/CwoNYEf.png" height="65%" width="65%" alt="Splunk"/>
+  <img src="https://i.imgur.com/aDMzAsd.png" height="65%" width="65%" alt="Splunk"/>
+
 
 # Splunk SIEM Log Analysis Projects
 - This repository contains a collection of projects for analyzing various types of logs using Splunk SIEM. Each project provides a structured guide for uploading sample log files, performing analysis, and gaining insights into specific types of log data.
