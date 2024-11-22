@@ -48,6 +48,7 @@ Provides insights for proactive security measures.
 
 ## 2. Splunk Apps
 - Navigate to Apps → Find more apps on Splunkbase → Install desired apps (e.g., Splunk Security Essential).
+  IMAGE
 ## 3. Data Ingestion and Parsing
 - Ingesting Data:
   - Configure inputs for logs from sources like:
@@ -57,12 +58,11 @@ Provides insights for proactive security measures.
 - Parsing Logs:
 - Ensure data is indexed and sourcetypes are set (e.g., dns logs).
 - Use field extractions to structure log data.
-
+IMAGE 
 ## 4. Search Processing Language (SPL)
-- Overview:
-  - SPL enables querying ingested data for analysis:
 
-### Search Processing Language SPL
+
+### Search Processing Language (SPL)
 
 - <b><ins>Search</b></ins>
   - Description: Retriees events from the index
@@ -121,6 +121,8 @@ Provides insights for proactive security measures.
     - Line Chart: Trends over time for failed logins.
     - Heatmap: IP addresses flagged for suspicious activity.
 
+  IMAGE
+  IMAGE
 
 # Splunk SIEM Log Analysis Projects
 - This repository contains a collection of projects for analyzing various types of logs using Splunk SIEM. Each project provides a structured guide for uploading sample log files, performing analysis, and gaining insights into specific types of log data.
