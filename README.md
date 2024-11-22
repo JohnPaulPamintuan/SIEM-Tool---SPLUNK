@@ -17,12 +17,109 @@
 - Indexing and Search: Processes large volumes of data and makes it searchable in real-time.
 - Custom Dashboards: Offers user-friendly visualizations for trends, alerts, and reports.
 - Advanced Analytics: Uses machine learning for anomaly detection and predictive insights.
-- Integration Capabilities: Easily integrates with third-party applications and other cybersecurity tools.
-- Scalability: Handles data of any size, making it suitable for organizations of all scales.
 
 ## How Splunk Helps in Security:
 Detects unusual patterns, e.g., brute force attacks or malware infections.
 Provides insights for proactive security measures.
+
+
+# Splunk SIEM Project
+- This project demonstrates how to set up and utilize Splunk as a Security Information and Event Management (SIEM) tool. It provides a comprehensive guide, from installation to creating dashboards, showcasing Splunk's capabilities in data ingestion, threat detection, and analysis.
+
+# Table of Contents
+1. Installing Splunk
+2. Splunk Apps
+3. Data Ingestion and Parsing
+4.Search Processing Language (SPL)
+5. Demo: Splunk Commands
+6- Creating Dashboards
+
+
+# 1. Installing Splunk
+## Steps:
+- Download Splunk Enterprise (free trial) from the Splunk website.
+- Installation walkthrough for:
+  - Linux: Use wget to download the package, followed by dpkg or rpm commands to install.
+  - Windows: Download the installer, run it, and follow the wizard.
+- Post-installation:
+  - Access Splunk Web at http://localhost:8000 using default credentials.
+  - IMAGE 
+
+
+## 2. Splunk Apps
+- Navigate to Apps → Find more apps on Splunkbase → Install desired apps (e.g., Splunk Security Essential).
+## 3. Data Ingestion and Parsing
+- Ingesting Data:
+  - Configure inputs for logs from sources like:
+    - Syslog (Linux servers, firewalls)
+    - Windows Event Logs (via Universal Forwarder)
+    - Custom application logs (e.g., web servers).
+- Parsing Logs:
+- Ensure data is indexed and sourcetypes are set (e.g., dns logs).
+- Use field extractions to structure log data.
+
+## 4. Search Processing Language (SPL)
+- Overview:
+  - SPL enables querying ingested data for analysis:
+
+### Search Processing Language SPL
+
+- <b><ins>Search</b></ins>
+  - Description: Retriees events from the index
+  - For example: Search error
+  - Result: It finds all events containing the word " error" 
+- <b><ins>Timechart</b></ins>
+  - Description: Create a time-based chart of results
+  - For example: index=security sourcetype=firewall | timechart count by action
+  - Result: It counts firewall actions over time, grouped by the action type.
+- <b><ins>Stat</b></ins>
+  - Description: Computes aggregate statistic over the events
+  - For example: index= security sourcetype=firewall | stats cont by src_ip
+  - Result: It counts events grouped by source IP address.
+
+
+
+
+### Advanced Search Commands 
+
+- <b><ins>Eval</b></ins>
+  - Description: Calculates an expression and assigns the result to a new field. 
+  - For example: Index=security | eval is_internal=if(src_ip LIKE “192.168.%”, “internal”, “external”).
+  - Result: It creates a new field is_initernal to classify Ip addresses as internal or external
+- <b><ins>transaction</b></ins>
+  - Description: Groups events that are related into a single event. 
+  - For example: index=secuitty | transaction startswith=”login” endswith=”logout” maxspan=30m 
+  - Result: It groups login and logout events into transaction with a maximum span of 30 minutes. 
+- <b><ins>Lookup</b></ins>
+  - Description: Enriches events with data from external sources. 
+  - For example: index=security | lookup geoip ip AS(autonomous system number)  src_ip OUTPUT country 
+  - Result: It enrcihes events with geographic information based on the source IP address. 
+
+
+### Reporting and visualization Commands
+
+- <b><ins>Chart</b></ins>
+  - Description: Generates a chart from the result
+  - For example: index=security | chart count by src_ip, dest_ip
+  - Result: It creates a chart  of event counts grouped by source and destination IP addresses.
+- <b><ins>Table</b></ins>
+  - Description: Displays result in a table format 
+  - For example: index=security | table src_ip, dest_ip, action
+  - Result: It displays source IP, destination IP and action in  a table. 
+- <b><ins>Dedup</b></ins>
+  - Description: Removes duplicate events from the results. . 
+  - For example: index=security | dedup src_ip dest_ip
+  - Result: It removes duplicates events based on source and destination IP addresses.
+
+# 6. Creating Dashboards
+- Steps:
+  - Navigate to Dashboards → Create a new dashboard.
+  - Add visualizations for:
+    - Logon attempts by user.
+    - Geographical distribution of access.
+  - Example Visualization:
+    - Line Chart: Trends over time for failed logins.
+    - Heatmap: IP addresses flagged for suspicious activity.
 
 
 # Splunk SIEM Log Analysis Projects
